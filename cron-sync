@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+CLONE_PATH="/tmp/gitsvn/noty/"
+
+cd "$CLONE_PATH"
+
+git pull
+git svn dcommit --add-author-from --rmdir --find-copies-harder
+exit $?
+
+# git fetch && git rebase origin/master
+# if git svn dcommit --add-author-from --rmdir --find-copies-harder
+# then
+#     echo "dcommit OK"
+# else
+#     echo "tem coisa no svn!!!!"
+#     git checkout -b conflicts #resolver o -b
+#     git merge origin/master
+#     git checkout master
+#     git svn rebase --strategy theirs
+#     git push --all --force
+# fi
+
+# git svn rebase
+# git push
+
+# git svn rebase
+# if git pull --squash
+# then
+#     echo "pull ok"
+#     git commit -F .git/SQUASH_MSG
+#     git svn dcommit --add-author-from --rmdir --find-copies-harder
+# else
+#     echo "pull com conflito"
+#     git rebase --abort
+#     git checkout -b conflicts
+#     git merge origin/master
+#     git checkout master
+#     git push --all --force
+# fi

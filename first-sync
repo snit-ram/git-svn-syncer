@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+CLONE_PATH=`pwd`
+
+SVN_URL=$1
+GIT_URL=$2
+CLONE_PATH=$3
+
+# read -e -p "SVN url: " SVN_URL
+# read -e -p "GIT url: " GIT_URL
+# read -e -p "Where do you want to clone repository? [$CLONE_PATH]: " CLONE_PATH
+
+echo "cloning git repository..."
+git clone "$GIT_URL" "$CLONE_PATH"
+
+echo "entering cloned repository..."
+cd "$CLONE_PATH"
+
+echo "fetching svn commits..."
+git svn init -T trunk "$SVN_URL"
+git svn fetch
+
+echo "creating git graft..."
+#retrieves git commit and svn commit hashes and makes a graft with them
+SVN_COMMIT=`git show-ref trunk | cut -d " " -f 1`
+GIT_COMMIT=`git log --pretty=oneline master | tail -n1 | cut -d " " -f 1`
+echo "$GIT_COMMIT $SVN_COMMIT" >> .git/info/grafts
+
+#syncs commits with svn
+echo "syncing commits into svn..."
+git svn dcommit --add-author-from --rmdir --find-copies-harder
+
+echo "DONE"

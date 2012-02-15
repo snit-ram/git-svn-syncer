@@ -2,6 +2,13 @@
 
 CLONE_PATH=`pwd`
 
+if [ "$1" == "" ]
+then
+    echo "usage: first-sync <svn-url> <git-url> <git-clone-path>"
+    echo ""
+    exit 0
+fi
+
 SVN_URL=$1
 GIT_URL=$2
 CLONE_PATH=$3

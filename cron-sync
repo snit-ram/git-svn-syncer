@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-CLONE_PATH="/tmp/gitsvn/noty/"
+CLONE_PATH="$1"
 
 cd "$CLONE_PATH"
 

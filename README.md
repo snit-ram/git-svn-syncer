@@ -19,13 +19,13 @@ Usage:
     $ ./first-sync <svn-url> <git-url> <gitsvn-clone-path>
 
 
-`svn-url` is the checkout url of your svn repository, without the `trunk` part.
+* `svn-url` is the checkout url of your svn repository, without the `trunk` part.
 Example: https://scribus.svn.sourceforge.net/svnroot/scribus
 
-`git-url` is the clone url of your git repository.
+* `git-url` is the clone url of your git repository.
 Example: git@github.com:snit-ram/git-svn-syncer.git
 
-`gitsvn-clone-path` is the path where first-sync will create the interstitial
+* `gitsvn-clone-path` is the path where first-sync will create the interstitial
 git-svn checkout to manage your syncs. Example: ~/git-svn-syncs/myproject/
 
 
@@ -40,7 +40,7 @@ Usage:
     $ ./cron-sync <gitsvn-clone-path>
 
 
-`gitsvn-clone-path` this is the same path used in `first-sync` script.
+* `gitsvn-clone-path` this is the same path used in `first-sync` script.
 
 
 

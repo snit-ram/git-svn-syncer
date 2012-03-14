@@ -4,7 +4,7 @@ CLONE_PATH=`pwd`
 
 if [ "$1" == "" ]
 then
-    echo "usage: first-sync <svn-url> <git-url> <git-clone-path>"
+    echo "usage: first-sync <svn-url> <git-url> <gitsvn-clone-path>"
     echo ""
     exit 0
 fi
@@ -12,10 +12,6 @@ fi
 SVN_URL=$1
 GIT_URL=$2
 CLONE_PATH=$3
-
-# read -e -p "SVN url: " SVN_URL
-# read -e -p "GIT url: " GIT_URL
-# read -e -p "Where do you want to clone repository? [$CLONE_PATH]: " CLONE_PATH
 
 echo "cloning git repository..."
 git clone "$GIT_URL" "$CLONE_PATH"

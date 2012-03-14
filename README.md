@@ -22,6 +22,7 @@ Usage:
 * `svn-url` is the checkout url of your svn repository, without the `trunk` part.
 Example: https://scribus.svn.sourceforge.net/svnroot/scribus
 
+* `git-url` is the clone url of your git repository.
 Example: git@github.com:snit-ram/git-svn-syncer.git
 
 * `gitsvn-clone-path` is the path where first-sync will create the interstitial

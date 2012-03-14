@@ -1,7 +1,7 @@
 # Git svn syncer
 
-These scripts are intend to be used to sync a git repository into a svn repo on
-a cron job, by using an interstitial git-svn clone.
+These scripts are intend to be used to sync an existing git repository into a
+(preferable empty) svn repo via cron job, by using an interstitial git-svn clone.
 
 The script works well on pre-populated svn repositories, but it's hard
 recommended that you use an empty svn repository.
@@ -9,10 +9,10 @@ recommended that you use an empty svn repository.
 
 ## first-sync
 
-This script is responsible for fetching both git and svn commits and to to the
+This script is responsible for fetching both git and svn commits and to do the
 first git to svn sync. You should run this script first.
 
-It will assumes that your first git commit starts before your last svn commit.
+It assumes that your first git commit starts after your last svn commit.
 
 Usage:
 
@@ -22,7 +22,6 @@ Usage:
 * `svn-url` is the checkout url of your svn repository, without the `trunk` part.
 Example: https://scribus.svn.sourceforge.net/svnroot/scribus
 
-* `git-url` is the clone url of your git repository.
 Example: git@github.com:snit-ram/git-svn-syncer.git
 
 * `gitsvn-clone-path` is the path where first-sync will create the interstitial
